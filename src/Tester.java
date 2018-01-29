@@ -30,7 +30,7 @@ public class Tester
                 }
                 if(Character.isLowerCase(input.charAt(0)))
                 {
-                    if(allMembers.containsKey(input) && !projects.get(projects.size()-1).members.contains(input))
+                    if(allMembers.containsKey(input) && !projects.get(projects.size()-1).members.contains(input)) //EDGE CASE!!!!! if they signed up for every single one, they will never be removed.
                     {
                         allMembers.get(input).members.remove(input);
                         allMembers.remove(input);
