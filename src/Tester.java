@@ -45,7 +45,9 @@ public class Tester
             if(!finished)
             {
                 Collections.sort(projects);
-                System.out.println(projects);
+                for(Project project : projects)
+                    System.out.println(project);
+                System.out.println();
             }
             else
             {
