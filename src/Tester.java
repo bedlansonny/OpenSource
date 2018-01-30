@@ -9,7 +9,7 @@ public class Tester
         while(true)
         {
             ArrayList<Project> projects = new ArrayList<>();
-            HashMap<String, Project> allMembers = new HashMap<>();
+            HashMap<String, Project> allMembers = new HashMap<>();  //<member, project>
             boolean finished = false;
 
             while(true)
@@ -30,12 +30,12 @@ public class Tester
                 }
                 if(Character.isLowerCase(input.charAt(0)))
                 {
-                    if(allMembers.containsKey(input) && !projects.get(projects.size()-1).members.contains(input)) //EDGE CASE!!!!! if they signed up for every single one, they will never be removed.
+                    if(allMembers.containsKey(input) && !projects.get(projects.size()-1).members.contains(input)) //!allMembers.get(input).equals(projects.get(projects.size()-1))
                     {
                         allMembers.get(input).members.remove(input);
-                        allMembers.remove(input);
+                        allMembers.put(input, new Project("666"));
                     }
-                    else
+                    else if(!projects.get(projects.size()-1).members.contains(input))
                     {
                         projects.get(projects.size()-1).members.add(input);
                         allMembers.put(input, projects.get(projects.size()-1));
@@ -53,4 +53,6 @@ public class Tester
             }
         }
     }
+
+
 }
